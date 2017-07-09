@@ -41,10 +41,10 @@ public class EmpSalary {
         victor.address.streetName = "Akademika Paladina";
         victor.address.buildingNum = "13";
         int sumSalary = getSumSalary(new Employee[]{alex, anton, sergei, maxim, victor});
-        System.out.print(sumSalary + " Sum");
+        System.out.print(sumSalary + " :Sum of the salaries");
         System.out.println();
         increaseSalary(new Employee[]{alex, anton, sergei, maxim, victor});
-        System.out.print(alex.salary + " Increased to 25%");
+        System.out.print(alex.salary + " :Increased to 25%");
         System.out.println();
         getEmpStreetName(new Employee[]{alex, anton, sergei, maxim, victor}, "KPI");
     }
@@ -68,7 +68,7 @@ public class EmpSalary {
     static void getEmpStreetName(Employee[] employees, String streetName){
         for (int i = 0; i < employees.length ; i++) {
             if (employees[i].address.streetName.equals(streetName)){
-                System.out.println(employees[i].name);
+                System.out.println(employees[i].name + " - Lives at this street");
             }
 
         }
