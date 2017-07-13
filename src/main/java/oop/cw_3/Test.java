@@ -28,5 +28,14 @@ public class Test {
 
 //        Ork:
 //        - can vampire shot
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(rnd(0, 10));
+        }
+    }
+
+    public static int rnd(int min, int max) {
+        max = max - min;
+        return (int) (Math.random() * ++max) + min;
     }
 }
