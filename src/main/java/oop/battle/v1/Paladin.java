@@ -1,4 +1,4 @@
-package oop;
+package oop.battle.v1;
 
 public class Paladin {
 
