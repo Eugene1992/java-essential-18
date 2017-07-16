@@ -1,4 +1,4 @@
-package game;
+package game.v2;
 
 /**
  * Created by D_ma on 15.07.2017.
