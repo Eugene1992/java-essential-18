@@ -11,15 +11,19 @@ public class Arena {
             lotar.makeAttack(kazar);
             Thread.sleep(1000);
 
+            if (!kazar.isAlive()){
+                lotar.victoryVoice();
+                break;
+            }
+
             kazar.makeAttack(lotar);
             Thread.sleep(1000);
 
             if (!lotar.isAlive()) {
-                lotar.victoryVoice();
-            }
-            if (!kazar.isAlive()){
                 kazar.victoryVoice();
+                break;
             }
+
         }
     }
 }

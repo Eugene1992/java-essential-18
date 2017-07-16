@@ -43,21 +43,29 @@ public class Hero {
     public void victoryVoice(){
         System.out.println(getName() +" is the greatest");
     }
+
     public void makeAttack(Hero hero){
-        int dmg = this.maxDmg * rnd(1, 3);
-        hero.hp -= dmg;
+        int dmg = rnd(this.minDmg, this.maxDmg);
+        hero.hp -= decreaseDmgByArmor(dmg);
         logAttack(this, dmg, hero);
     }
+
+    public int decreaseDmgByArmor(int dmg) {
+        // TODO: 16.07.2017 calculate damage decreasing
+        return 0;
+    }
+
     public boolean isAlive(){
         return this.hp > 0;
     }
+
     public int rnd(int maxDmg, int minDmg){
         maxDmg = maxDmg - minDmg;
         return (int) (Math.random() * ++maxDmg) + minDmg;
     }
-    public void logAttack(Hero attacker, int hp, Hero defender){
 
-        System.out.println(attacker.name + " is attacked " + defender.name +"! " + " take damage " + defender.name + " left hp:" + defender.hp);
+    public void logAttack(Hero attacker, int dmg, Hero defender){
+
+        System.out.println(attacker.name + " is attacked " + defender.name +"! " + defender.name + " take damage " + dmg + " left hp:" + defender.hp);
     }
-
 }
