@@ -12,9 +12,7 @@ public class Hero {
     protected double minStrength;
     protected double maxStrength;
 
-
-
-    public Hero (String name, double hp, double armor, double weaponDmg, double minStrength, double maxStrength) {
+    public Hero(String name, double hp, double armor, double weaponDmg, double minStrength, double maxStrength) {
         this.name = name;
         this.hp = hp;
         this.armor = armor;
@@ -23,15 +21,31 @@ public class Hero {
         this.maxStrength = maxStrength;
     }
 
-    public String getName() {return name;}
-    public double getHp () {return hp;}
-    public double getArmor () {return armor;}
-    public double getWeaponDmg () {return weaponDmg;}
-    public double getMinStrength () {return minStrength;}
-    public double getMaxStrength () {return maxStrength;}
+    public String getName() {
+        return name;
+    }
 
-    public void dmg (Hero hero) {
+    public double getHp() {
+        return hp;
+    }
 
+    public double getArmor() {
+        return armor;
+    }
+
+    public double getWeaponDmg() {
+        return weaponDmg;
+    }
+
+    public double getMinStrength() {
+        return minStrength;
+    }
+
+    public double getMaxStrength() {
+        return maxStrength;
+    }
+
+    public void dmg(Hero hero) {
         double strength = rndStrength(this.minStrength, this.maxStrength);
         double dmg = strength + this.weaponDmg;
         hero.hp -= protection(dmg);
@@ -39,25 +53,29 @@ public class Hero {
     }
 
     private void logAttack(Hero attacker, double dmg, Hero defender) {
+        // TODO: 20.07.2017 try to rewrite with printf()
         System.out.println(attacker.name + " is attacked " + defender.name + "take damage " + dmg + " left HP: " + defender.hp);
     }
 
 
     public double protection(double dmg) {
-       double protection = dmg - armor;
-       return protection;
+        return dmg - armor;
     }
 
     public boolean isAlive() {
-        return this.hp > 0;}
+        return this.hp > 0;
+    }
 
 
     public double rndStrength(double minStrength, double maxStrength) {
         maxStrength = maxStrength - minStrength;
-        return (double) (Math.random() * ++maxStrength) + minStrength;
+        return Math.random() * ++maxStrength + minStrength;
     }
-    public void commentatorVoice () {System.out.println(getName() +" is the winner");}
 
+    public void commentatorVoice() {
+        System.out.println(getName() + " is the winner");
     }
+
+}
 
 

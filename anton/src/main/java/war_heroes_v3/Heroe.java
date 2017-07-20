@@ -52,7 +52,6 @@ public abstract class Heroe {
     }
 
     public boolean isAlive() {
-
         return this.hp > 0;
     }
 
