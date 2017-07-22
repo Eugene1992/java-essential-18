@@ -1,8 +1,7 @@
 package gamev3;
 
-/**
- * Created by D_ma on 17.07.2017.
- */
+import static gamev3.BattleUnits.getRndArreyHeroIndexd;
+
 public class Arena {
     public static void main(String[] args) throws Exception {
         Hero zeratul = new Elf("Zeratul", 100, 2, 4, 1, 5);
@@ -13,13 +12,8 @@ public class Arena {
     }
 
 
-    static void teamBattle(Hero[] teamOne, Hero[] teamTwo) {
-        for (int i = 0; i < teamOne.length; i++) {
-            teamOne[i].dmg(teamTwo[i]);
-            teamTwo[i].dmg(teamOne[i]);
-
-        }
-    }
 
 }
+
+
 
