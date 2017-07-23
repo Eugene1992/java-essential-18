@@ -1,18 +1,27 @@
 package oop.battle.v5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static oop.battle.v5.BattleUtils.getRandomArrayIndex;
 
 public class Arena {
     public static void main(String[] args) throws InterruptedException {
         Hero starix = new DarkElf("Starix", 2500, 120);
         Hero dwarf = new Dwarf("Ded Maksim", 1500, 80);
+        List<Hero> firstTeam = new ArrayList<>();
+        firstTeam.add(starix);
+        firstTeam.add(dwarf);
 
         Hero abadon = new Paladin("Abadon", 1000, 50);
         Hero zoolus = new Paladin("Zoolus", 3000, 150);
+        List<Hero> secondTeam = new ArrayList<>();
+        secondTeam.add(abadon);
+        secondTeam.add(zoolus);
 
 
-        Player anton = new Player("Anton", starix, dwarf);
-        Player dima = new Player("Dima", abadon, zoolus);
+        Player anton = new Player("Anton", firstTeam);
+        Player dima = new Player("Dima", secondTeam);
 
         groupBattle(anton, dima);
     }
@@ -39,21 +48,29 @@ public class Arena {
     }
 
     static void groupBattle(Player first, Player second) throws InterruptedException {
-        if (first.getHeroes().length != second.getHeroes().length) {
+        if (first.getHeroes().size() != second.getHeroes().size()) {
             System.out.println("Teams are had not equals length");
             return;
         }
         while (first.isAlive() && second.isAlive()) {
-            Hero[] firstHeroes = first.getHeroes();
-            Hero[] secondHeroes = second.getHeroes();
+            List<Hero> firstHeroes = first.getHeroes();
+            List<Hero> secondHeroes = second.getHeroes();
 
-            for (int i = 0; i < firstHeroes.length; i++) {
+            for (int i = 0; i < firstHeroes.size(); i++) {
+
                 int rndIndex = getRandomArrayIndex(secondHeroes);
-                firstHeroes[i].attack(secondHeroes[rndIndex]);
+
+                Hero def = secondHeroes.get(rndIndex);
+
+                if (!def.isAlive()) {
+                    secondHeroes.remove(rndIndex);
+                }
+
+//                firstHeroes.get(i).attack();
                 Thread.sleep(1000);
 
                 rndIndex = getRandomArrayIndex(firstHeroes);
-                secondHeroes[i].attack(firstHeroes[rndIndex]);
+                secondHeroes.get(i).attack(firstHeroes.get(rndIndex));
                 Thread.sleep(1000);
             }
         }

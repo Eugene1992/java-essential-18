@@ -1,12 +1,14 @@
 package oop.battle.v5;
 
+import java.util.List;
+
 public class Player {
 
     private String name;
-    private Hero[] heroes;
+    private List<Hero> heroes;
     private boolean isAlive;
 
-    public Player(String name, Hero... heroes) {
+    public Player(String name, List<Hero> heroes) {
         this.name = name;
         this.heroes = heroes;
         this.isAlive = true;
@@ -20,11 +22,11 @@ public class Player {
         this.name = name;
     }
 
-    public Hero[] getHeroes() {
+    public List<Hero> getHeroes() {
         return heroes;
     }
 
-    public void setHeroes(Hero[] heroes) {
+    public void setHeroes(List<Hero> heroes) {
         this.heroes = heroes;
     }
 

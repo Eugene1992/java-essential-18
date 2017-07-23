@@ -1,5 +1,7 @@
 package oop.battle.v5;
 
+import java.util.List;
+
 public class BattleUtils {
 
     private BattleUtils() {
@@ -9,8 +11,8 @@ public class BattleUtils {
         return getRandNum(min, max);
     }
 
-    public static int getRandomArrayIndex(Hero[] heroes) {
-        return getRandNum(0, heroes.length - 1);
+    public static int getRandomArrayIndex(List<Hero> heroes) {
+        return getRandNum(0, heroes.size() - 1);
     }
 
     private static int getRandNum(int min, int max) {

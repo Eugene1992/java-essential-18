@@ -18,8 +18,6 @@ public class HumanFighter extends Human {
             this.mp -= 65;
             System.out.println(this.name + " Cast: BACKSTEB! " + this.name + " Left " + this.mp + " mana");
             isHadTheMana();
-
-
         }
         if (BattlleUtils.isHadTheChance(mortalBlow)) {
             dmg *= 1.2;

@@ -84,19 +84,24 @@ public abstract class Heroes {
         System.out.printf("%s attacked %s, and damaged him: %d! %s left: %d hp \n\n",
                 attacker.name, defender.name, dmg, defender.name, defender.hp);
     }
-    public boolean isAlive(){
+
+    public boolean isAlive() {
         return this.hp > 0;
     }
-    public boolean isHadTheMana(){
+
+    public boolean isHadTheMana() {
         manaEnds();
         return this.mp > 0;
     }
-    public void victoryVoice(){
+
+    public void victoryVoice() {
         System.out.println(this.name + " is the WINNER!");
     }
-    public boolean manaEnds(){
-        if (this.mp < 0){
 
-        } return false;
+    public boolean manaEnds() {
+        if (this.mp < 0) {
+
+        }
+        return false;
     }
 }
