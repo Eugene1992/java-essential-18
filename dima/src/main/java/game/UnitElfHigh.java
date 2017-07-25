@@ -8,7 +8,7 @@ public class UnitElfHigh extends Hero {
 
     @Override
     public void attackDmg(Hero hero) {
-        int dmg = this.weaponsDmg + BattleUnits.getRndStrength(1 , 10);
+        int dmg = this.weaponsDmg + BattleUnits.getRndStrength(1, 10);
         hero.hp -= dmg;
         BattleUnits.logAttack(this, dmg, hero);
     }
