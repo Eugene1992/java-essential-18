@@ -23,22 +23,35 @@ public class HumanFighter extends Human {
             System.out.println("3: backStab;");
             Scanner skill = new Scanner(System.in);
             String skillChoosing = skill.next();
+            Shot shot = null;
             if (skillChoosing.equals("1")) {
-                dmg *= 1.2;
-                hp -= dmg;
-                this.mp -= 150;
+                shot = new Shot(1.2, 150);
             }
             if (skillChoosing.equals("2")) {
-                dmg *= 2.4;
-                hp -= dmg;
-                this.mp -= 220;
+                shot = new Shot(2.4, 220);
             }
             if (skillChoosing.equals("3")) {
-                dmg *= 0.8;
-                hp -= dmg;
-                this.mp -= 65;
+                shot = new Shot(0.8, 65);
             }
+            dmg += shot.executeFor(hero);
         }
         logAttack(this, dmg, hero);
+    }
+
+    private class Shot {
+        double dmgScale;
+        int mpCost;
+
+        public Shot(double dmgScale, int mpCost) {
+            this.dmgScale = dmgScale;
+            this.mpCost = mpCost;
+        }
+
+        public double executeFor(Hero defender) {
+            double dmg = dmgScale * HumanFighter.this.pDmg;
+            defender.hp -= dmg;
+            HumanFighter.this.mp -= mpCost;
+            return dmg;
+        }
     }
 }

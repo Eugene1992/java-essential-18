@@ -1,7 +1,7 @@
 package Lineage_v2;
 
 public abstract class Hero {
-    String name;
+    protected String name;
     protected int hp;
     protected int mp;
     protected int pDef;
@@ -73,16 +73,19 @@ public abstract class Hero {
 
     public abstract void attack(Hero hero);
 
-    public boolean isAlive(){
+    public boolean isAlive() {
         return this.hp > 0;
     }
-    public boolean isHadMana(){
+
+    public boolean isHadMana() {
         return this.mp > 0;
     }
-    public void logAttack(Hero attacker, int dmg, Hero defender){
-        System.out.printf("%s attacked %s and damaged him: %d, %s left: %d hp \n\n", attacker.name, defender.name, dmg, defender.name, defender.hp );
+
+    public void logAttack(Hero attacker, int dmg, Hero defender) {
+        System.out.printf("%s attacked %s and damaged him: %d, %s left: %d hp \n\n", attacker.name, defender.name, dmg, defender.name, defender.hp);
     }
-    public void victoryVoice(){
+
+    public void victoryVoice() {
         System.out.println(this.name + " is the best hero ever!");
     }
 
